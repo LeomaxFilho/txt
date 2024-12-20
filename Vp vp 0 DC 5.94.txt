@@ -4,10 +4,10 @@ R1 in out 10k
 D1 0 out SMV1493
 Vbias out vp 0
 .model SMV1493 D (IS=1e-14 RS=0.1 N=1.024 CJ0=2.8e-11 VJ=0.63 M=0.47 BV=100 IBV=1e-3)
-.tran 0.1u 5u
+.tran 0.1u 10u
 .control
 run
-plot v(out)
+plot v(out) xlimit 5u 10u
 wrdata varactor_discharge.txt time v(out)
 .endc
 .end
