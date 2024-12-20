@@ -1,14 +1,16 @@
 Vp vp 0 DC 5.94
-Vin in 0 PULSE(0 0.1 0 1n 1n 20u 40u)
+Vin in 0 PULSE(0 0.1 0 1n 1n 5u 10u)
 R1 in out 10k
 D1 0 out SMV1493
+Vbias out vp 0
 
 .model SMV1493 D (IS=1e-14 RS=0.1 N=1.024 CJ0=2.8e-11 VJ=0.63 M=0.47 BV=100 IBV=1e-3)
 
-.tran 0.01u 30u uic
+.tran 0.1u 50u
 .control
 run
-plot v(out) v(in)
+plot v(out)
+wrdata saida.txt time v(out)
 .endc
 
 .end
