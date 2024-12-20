@@ -7,10 +7,8 @@ D1 0 out SMV1493
 
 .tran 0.01u 30u uic
 .control
-set numdgt=7
 run
-wrdata tau.txt time v(out)
-quit
+plot v(out) v(in)
 .endc
 
 .end
