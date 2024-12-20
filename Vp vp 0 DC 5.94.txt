@@ -1,0 +1,16 @@
+Vp vp 0 DC 5.94
+Vin in 0 PULSE(0 0.1 0 1n 1n 20u 40u)
+R1 in out 10k
+D1 0 out SMV1493
+
+.model SMV1493 D (IS=1e-14 RS=0.1 N=1.024 CJ0=2.8e-11 VJ=0.63 M=0.47 BV=100 IBV=1e-3)
+
+.tran 0.01u 30u uic
+.control
+set numdgt=7
+run
+wrdata tau.txt time v(out)
+quit
+.endc
+
+.end
