@@ -1,6 +1,6 @@
 # txt
 
-* Análise do Diodo Varactor - Saída CSV com cabeçalho
+* Análise do Diodo Varactor
 .title Análise do Diodo Varactor
 Vin 1 0 PULSE(0 0.1 0 1n 1n 60n 120n)   
 Vp 2 0 DC 5.94                           
@@ -12,11 +12,10 @@ D1 3 2 SMV1493
 .tran 0.1n 60n
 
 .control
-set filetype=ascii
-echo "tempo,v_diodo,v_entrada" > dados.csv
+set color0=white          ; cor do fundo
+set xbrushwidth=2         ; espessura da linha
 run
-wrdata dados.csv time v(3) v(1)
-quit
+plot v(3) v(1) title 'Resposta do Diodo Varactor' xlabel 'Tempo (s)' ylabel 'Tensão (V)'
 .endc
 
 .end
